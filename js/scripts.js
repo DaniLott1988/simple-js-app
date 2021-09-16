@@ -1,10 +1,1 @@
-alert('Hello World!');
-
-let favoriteFood = 'Pao de Queijo';
-document.write(favoriteFood);
-
-/* Use backslash to allow a special symbol to be interpreted as regular code-text */
-
-let escapedText = "\"Yes!\", that's for sure.";
-let escapedText2 = '"Yes!", that\'s for sure.';
-let escapedText3 = 'This is \\ it!'
+let pokemonList = [{name="Bulbasaur", type=['grass','poison'], height=0.7}, {name="Ivysaur", type=['grass','poison'], height=1}, {name="Venusaur", type=['grass','poison'], height=2}, {name="Charmander", type="fire", height=0.6}, {name="Charmeleon", type="fire", height=1.1}, {name="Charizard", type=['fire','flying'], height=1.7}, {name="Squirtle", type="water", height=0.5}, {name="Wartortle", type="water", height=1}, {name="Blastoise", type="water", height=1.6}]

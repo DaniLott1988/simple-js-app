@@ -1,0 +1,29 @@
+:root {
+  --bg-color: lightblue;
+  --font-weight_normal: 700;
+}
+
+body {
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--bg-color);
+  font-family: 'Otomanopee One', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: var(--font-weight_normal);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--font-weight_normal);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: var(--font-weight_normal);
+}

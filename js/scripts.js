@@ -63,7 +63,7 @@ for (let i = 0; i < pokemonList.length; i++) {
   let pokemonHe = pokemonList[i].height;
   if (pokemonHe >= 1.9) {
     document.write(
-      '<p>' + pokemonNa + ' ' + '(Height: ' + pokemonHe + ')' + "Woa! You found a big one!" + '</p>'
+      '<p>' + pokemonNa + ' ' + '(Height: ' + pokemonHe + ')' + " - Woa! You found a big one!" + '</p>'
     );
   } else {
     document.write(

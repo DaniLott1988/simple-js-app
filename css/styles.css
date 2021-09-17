@@ -27,3 +27,9 @@ h3 {
   font-size: 18px;
   font-weight: var(--font-weight_normal);
 }
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

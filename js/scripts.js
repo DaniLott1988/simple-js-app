@@ -60,7 +60,11 @@ let pokemonRepository = (
       }
     ];
     function add(pokemon) {
-      pokemonList.push(pokemon);
+      if (pokemon = '{name:"", type:"", height:}') {
+        pokemonList.push(pokemon);
+      } else {
+        return false;
+      }
     };
     function getAll() {
       return pokemonList;
@@ -71,6 +75,7 @@ let pokemonRepository = (
     };
   }
 )
+let pokemon = aaa
 
 pokemonList.forEach(
   function (currentPokemon) {

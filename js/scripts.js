@@ -1,5 +1,4 @@
-let pokemonRepository = (
-  function () {
+let pokemonRepository = (function () {
     let pokemonList = [
       {
         name:"Bulbasaur",
@@ -60,27 +59,27 @@ let pokemonRepository = (
       }
     ];
     function add(pokemon) {
-      if (pokemon = '{name:"", type:"", height:}') {
-        pokemonList.push(pokemon);
+      if (item = '{name:"", type:"", height:}') {
+        pokemonList.push(item);
       } else {
         return false;
       }
     };
     function getAll() {
       return pokemonList;
-    };
+    }
     return {
-      add: add,
-      getAll: getAll
+    getAll: getAll,
+    add: add,
     };
   }
-)
-let pokemon = aaa
+) ();
 
-pokemonList.forEach(
-  function (currentPokemon) {
-    let pokemonNa = currentPokemon.name
-    let pokemonHe = currentPokemon.height
+let item = '{name:"Caterpie", type:"Bug", height:0.3}'
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+    let pokemonNa = pokemon.name
+    let pokemonHe = pokemon.height
     let text1 = '(Height: ';
     let text2 = ' - Woa! You found a big one!'
 //start of the conditional with if, a condition must be met in order to obtain the result A

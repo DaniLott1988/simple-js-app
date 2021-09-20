@@ -58,20 +58,22 @@ let pokemonList = [
   }
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-  let pokemonNa = pokemonList[i].name;
-  let pokemonHe = pokemonList[i].height;
-  let text1 = '(Height: ';
-  let text2 = ' - Woa! You found a big one!'
+pokemonList.forEach(
+  function (currentPokemon) {
+    let pokemonNa = currentPokemon.name
+    let pokemonHe = currentPokemon.height
+    let text1 = '(Height: ';
+    let text2 = ' - Woa! You found a big one!'
 //start of the conditional with if, a condition must be met in order to obtain the result A
-  if (pokemonHe >= 1.9) {
-    document.write(
-      '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + text2 + '</p>'
+    if (pokemonHe >= 1.9) {
+      document.write(
+        '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + text2 + '</p>'
     );
-    //if the conditional "if" is not met, it will result in the else condition being fulfilled in this case
-  } else {
-    document.write(
-      '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + '</p>'
-    );
+//if the conditional "if" is not met, it will result in the else condition being fulfilled in this case
+    } else {
+      document.write(
+        '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + '</p>'
+      );
+    }
   }
-}
+)

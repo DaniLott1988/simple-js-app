@@ -85,8 +85,8 @@ let pokemonRepository = (function () {
       addEventListener(button, pokemon);
     }
     function addEventListener(button, pokemon) {
-      button.addEventListener('splash', function () {
-        showDetails(pokemonNa);
+      button.addEventListener('click', function () {
+        showDetails(pokemon.name);
       });
     };
     function showDetails(pokemon) {

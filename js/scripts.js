@@ -58,7 +58,6 @@ let pokemonRepository = (function () {
         height:1.6
       }
     ];
-
     function add(pokemon) {
       if (
         typeof pokemon === "object" &&
@@ -71,11 +70,9 @@ let pokemonRepository = (function () {
         console.log("Hey, that's not a Pokemon!");
       }
     };
-
     function getAll() {
       return pokemonList;
     }
-
     function addListItem(pokemon) {
       let pokemonNa = pokemon.name
       let pokeList = document.querySelector(".pokemon-list");
@@ -85,8 +82,16 @@ let pokemonRepository = (function () {
       button.classList.add("button-class");
       listPokemon.appendChild(button);
       pokeList.appendChild(listPokemon);
+      addEventListener(button, pokemon);
     }
-
+    function addEventListener(button, pokemon) {
+      button.addEventListener('splash', function () {
+        showDetails(pokemonNa);
+      });
+    };
+    function showDetails(pokemon) {
+      console.log(pokemon);
+    };
     return {
     getAll: getAll,
     add: add,

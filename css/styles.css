@@ -1,5 +1,7 @@
 :root {
   --bg-color: lightblue;
+  --brown: brown;
+  --white: white;
   --font-weight_normal: 700;
 }
 
@@ -32,4 +34,19 @@ h3 {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.button-class {
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid var(--brown);
 }

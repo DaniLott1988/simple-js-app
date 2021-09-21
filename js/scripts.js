@@ -58,6 +58,7 @@ let pokemonRepository = (function () {
         height:1.6
       }
     ];
+
     function add(pokemon) {
       if (
         typeof pokemon === "object" &&
@@ -70,12 +71,26 @@ let pokemonRepository = (function () {
         console.log("Hey, that's not a Pokemon!");
       }
     };
+
     function getAll() {
       return pokemonList;
     }
+
+    function addListItem(pokemon) {
+      let pokemonNa = pokemon.name
+      let pokeList = document.querySelector(".pokemon-list");
+      let listPokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemonNa;
+      button.classList.add("button-class");
+      listPokemon.appendChild(button);
+      pokeList.appendChild(listPokemon);
+    }
+
     return {
     getAll: getAll,
     add: add,
+    addListItem: addListItem
     };
   }
 ) ();
@@ -83,21 +98,8 @@ let pokemonRepository = (function () {
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({name:"Pikachu",type:"electric",height:0.3});
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-    let pokemonNa = pokemon.name
-    let pokemonHe = pokemon.height
-    let text1 = '(Height: ';
-    let text2 = ' - Woa! You found a big one!'
-//start of the conditional with if, a condition must be met in order to obtain the result A
-    if (pokemonHe >= 1.9) {
-      document.write(
-        '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + text2 + '</p>'
-    );
-//if the conditional "if" is not met, it will result in the else condition being fulfilled in this case
-    } else {
-      document.write(
-        '<p>' + pokemonNa + ' ' + text1 + pokemonHe + ')' + '</p>'
-      );
-    }
+pokemonRepository.getAll().forEach(
+  function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
   }
-)
+);

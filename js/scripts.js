@@ -59,10 +59,15 @@ let pokemonRepository = (function () {
       }
     ];
     function add(pokemon) {
-      if (item = '{name:"", type:"", height:}') {
-        pokemonList.push(item);
+      if (
+        typeof pokemon === "object" &&
+        "name" in pokemon &&
+        "type" in pokemon &&
+        "height" in pokemon
+      ) {
+        pokemonList.push(pokemon);
       } else {
-        return false;
+        console.log("Hey, that's not a Pokemon!");
       }
     };
     function getAll() {
@@ -75,7 +80,8 @@ let pokemonRepository = (function () {
   }
 ) ();
 
-let item = '{name:"Caterpie", type:"Bug", height:0.3}'
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({name:"Pikachu",type:"electric",height:0.3});
 
 pokemonRepository.getAll().forEach(function (pokemon) {
     let pokemonNa = pokemon.name

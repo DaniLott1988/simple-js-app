@@ -37,6 +37,9 @@ let pokemonRepository = (function () {
       console.log(pokemon);
     };
     function loadList() {
+      function showLoadingMessage() {
+        ('I\'ll bring your Pokemon right back!').load;
+      };
       return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
@@ -47,11 +50,20 @@ let pokemonRepository = (function () {
           };
           add(pokemon);
         });
+        function hideLoadingMessage() {
+          ('I\'ll bring your Pokemon right back!').hide;
+        };
       }).catch(function (e) {
         console.error(e);
+        function hideLoadingMessage() {
+          ('I\'ll bring your Pokemon right back!').hide;
+        };
       })
     };
     function loadDetails(item) {
+      function showLoadingMessage() {
+        ('I\'ll bring your Pokemon right back!').load;
+      };
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
@@ -60,8 +72,14 @@ let pokemonRepository = (function () {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
+        function hideLoadingMessage() {
+          ('I\'ll bring your Pokemon right back!').hide;
+        };
       }).catch(function (e) {
         console.error(e);
+        function hideLoadingMessage() {
+          ('I\'ll bring your Pokemon right back!').hide;
+        };
       });
     };
     function showDetails(item) {

@@ -31,18 +31,16 @@ let pokemonRepository = (function () {
     }
 
     function showLoadingMessage() {
-      let loadingMessage = document.querySelector('p');
-      loadingMessage.innerText = 'Please wait for a moment while I heal your pokemon and bring him back!'
+      let loadingMessage = document.querySelector('#loading-message');
       window.addEventListener('load', function(){
-        loadind.style.visibility = 'visible';
+        loadingMessage.style.visibility = 'visible';
       });
     }
 
     function hideLoadingMessage() {
-      let loadingMessage = document.querySelector('p');
-      loadingMessage.innerText = 'Please wait for a moment while I heal your pokemon and bring him back!'
+      let loadingMessage = document.querySelector('#loading-message');
       setTimeout(function(){
-        loadind.style.visibility = 'hidden';
+        loadingMessage.style.visibility = 'hidden';
       }, 500);
 
     }

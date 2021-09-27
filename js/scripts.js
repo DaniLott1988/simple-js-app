@@ -29,15 +29,35 @@ let pokemonRepository = (function () {
         showDetails(pokemon);
       });
     }
+
+    function showLoadingMessage() {
+      let loadingMessage = document.querySelector('p');
+      loadingMessage.innerText = 'Please wait for a moment while I heal your pokemon and bring him back!'
+      window.addEventListener('load', function(){
+        loadind.style.visibility = 'visible';
+      });
+    }
+
+    function hideLoadingMessage() {
+      let loadingMessage = document.querySelector('p');
+      loadingMessage.innerText = 'Please wait for a moment while I heal your pokemon and bring him back!'
+      setTimeout(function(){
+        loadind.style.visibility = 'hidden';
+      }, 500);
+
+    }
+
     function addEventListener(button, pokemon) {
       button.addEventListener('click', function (event) {
         showDetails(pokemon);
       });
     };
     function loadList() {
+      showLoadingMessage();
       return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
+        hideLoadingMessage();
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
@@ -46,12 +66,15 @@ let pokemonRepository = (function () {
           add(pokemon);
         });
       }).catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       })
     };
     function loadDetails(item) {
+      showLoadingMessage();
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
+        hideLoadingMessage();
         return response.json();
       }).then(function (details) {
         // Now we add the details to the item
@@ -59,6 +82,7 @@ let pokemonRepository = (function () {
         item.height = details.height;
         item.type = details.types;
       }).catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       });
     }
@@ -119,7 +143,9 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails,
     showModal: showModal,
-    hideModal: hideModal
+    hideModal: hideModal,
+    showLoadingMessage: showLoadingMessage,
+    hideLoadingMessage: hideLoadingMessage
     };
   }
 ) ();

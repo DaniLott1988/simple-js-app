@@ -75,18 +75,12 @@ let pokemonRepository = (function() {
       })
       .then(function(details) {
         // Now we add the details to the item
-        item.imageUrlFront = details.sprites.front_default;
+        item.imageUrl = details.sprites.front_default;
         item.imageUrlBack = details.sprites.back_default;
         item.height = details.height;
         item.weight = details.weight;
-        item.types = [];
-        for (let i = 0; i < details.types.lenght; i++) {
-          item.types.push(details.types[i].type.name);
-        }
-        item.abilities = [];
-        for (let i = 0; i < details.abilities.lenght; i++) {
-          item.abilities.push(details.abilities[i].ability.name);
-        }
+        item.types = details.types;
+        item.abilities = details.abilities;
       })
       .catch(function(e) {
         hideLoadingMessage();
@@ -97,22 +91,22 @@ let pokemonRepository = (function() {
   }
 
   /* eslint-env jquery */
-  function showModal(item) {
+  function showModal(pokemon) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
     //clear the content after use to be ready for the next
     modalTitle.empty();
     modalBody.empty();
 
-    let nameElement = $('<h1>' + item.name + '</h1>');
+    let nameElement = $('<h1>' + pokemon.name + '</h1>');
     let imageElementF = $('<img class="modal-img" style="width:50%">');
-    imageElementF.attr('scr', item.imageUrlFront);
+    imageElementF.attr('scr', pokemon.imageUrl);
     let imageElementB = $('<img class="modal-img" style="width:50%">');
-    imageElementF.attr('scr', item.imageUrlBack);
-    let heightElement = $('<p>' + 'Height: ' + item.height + ' dm' + '</p>');
-    let weightElement = $('<p>' + 'Weight: ' + item.weight + ' kg' + '</p>');
-    let typesElement = $('<p>' + 'Types: ' + item.types +  '</p>');
-    let abilitiesElement = $('<p>' + 'Abilities: ' + item.abilities + '</p>');
+    imageElementF.attr('scr', pokemon.imageUrlBack);
+    let heightElement = $('<p>' + 'Height: ' + pokemon.height + ' dm' + '</p>');
+    let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + ' kg' + '</p>');
+    let typesElement = $('<p>' + 'Types: ' + pokemon.types.map(pokemon => ' ' + pokemon.type.name) + '</p>');
+    let abilitiesElement = $('<p>' + 'Abilities: ' + pokemon.abilities.map(pokemon => ' ' + pokemon.ability.name) + '</p>');
 
     modalTitle.append(nameElement);
     modalBody.append(imageElementF);

@@ -1,0 +1,92 @@
+:root {
+  --bg-color: lightblue;
+  --brown: brown;
+  --white: white;
+  --font-weight_normal: 700;
+}
+
+body {
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--bg-color);
+  font-family: 'Otomanopee One', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: var(--font-weight_normal);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--font-weight_normal);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: var(--font-weight_normal);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button-class {
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 16px 32px;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid var(--brown);
+}
+
+.pokemon-list {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+}
+
+#title-with-blastoise {
+  display: flex;
+  justify-content: center;
+}
+
+.Blastoise {
+  width: 150px;
+  height: 150px;
+}
+
+#gif-credit {
+  display: flex;
+  justify-content: center;
+  font-size: 9px;
+}
+
+.loading-message {
+  color: var(--white);
+}
+
+.hidden {
+  display: none;
+}
+
+.page_footer {
+  clear: both;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

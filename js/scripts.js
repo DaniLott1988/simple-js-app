@@ -28,12 +28,17 @@ let pokemonRepository = (function() {
   }
 
   function showLoadingMessage() {
-    document.querySelector('.loading-message').classList.add('visible');
-  }
-
-  function hideLoadingMessage() {
-    document.querySelector('.loading-message').classList.add('hidden');
-  }
+      let loadingMessage = document.querySelector('#loading-message');
+      window.addEventListener('load', function(){
+        loadingMessage.style.visibility = 'visible';
+      });
+    }
+    function hideLoadingMessage() {
+      let loadingMessage = document.querySelector('#loading-message');
+      setTimeout(function(){
+        loadingMessage.style.visibility = 'hidden';
+      }, 500);
+    }
 
   function loadList() {
     showLoadingMessage();
@@ -148,3 +153,25 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+let backbutton= document.getElementById('bck-to-top');
+window.onscroll = function() {
+ scrollFunction();
+};
+function scrollFunction() {
+ if (
+   document.body.scrollTop > 200 ||
+   document.documentElement.scrollTop > 200
+ ) {
+  backbutton.style.display = 'block';
+ } else {
+  backbutton.style.display = 'none';
+ }
+}
+// When the user clicks on the button, go to the top of the page
+backbutton.addEventListener('click', backToTop);
+
+function backToTop() {
+ document.body.scrollTop = 0;
+ document.documentElement.scrollTop = 0;
+}

@@ -81,3 +81,12 @@ h3 {
 .hidden {
   display: none;
 }
+
+.page_footer {
+  clear: both;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

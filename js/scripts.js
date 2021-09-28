@@ -65,9 +65,9 @@ let pokemonRepository = (function() {
     });
   }
 
-  function loadDetails(pokemon) {
+  function loadDetails(item) {
     showLoadingMessage();
-    let url = pokemon.detailsUrl;
+    let url = item.detailsUrl;
     return fetch(url)
       .then(function(response) {
         hideLoadingMessage();
@@ -75,17 +75,17 @@ let pokemonRepository = (function() {
       })
       .then(function(details) {
         // Now we add the details to the item
-        pokemon.imageUrlF = details.sprites.front_default;
-        pokemon.imageUrlB = details.sprites.back_default;
-        pokemon.height = details.height;
-        pokemon.weight = details.weight;
-        pokemon.types = [];
+        item.imageUrlF = details.sprites.front_default;
+        item.imageUrlB = details.sprites.back_default;
+        item.height = details.height;
+        item.weight = details.weight;
+        item.types = [];
         for (let i = 0; i < details.types.lenght; i++) {
-          pokemon.types.push(details.types[i].type.name);
+          item.types.push(details.types[i].type.name);
         }
-        pokemon.abilities = [];
+        item.abilities = [];
         for (let i = 0; i < details.abilities.lenght; i++) {
-          pokemon.abilities.push(details.abilities[i].ability.name);
+          item.abilities.push(details.abilities[i].ability.name);
         }
       })
       .catch(function(e) {

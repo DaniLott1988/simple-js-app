@@ -57,3 +57,19 @@ h3 {
   text-align: center;
   list-style-type: none;
 }
+
+#title-with-blastoise {
+  display: flex;
+  justify-content: center;
+}
+
+.Blastoise {
+  width: 150px;
+  height: 150px;
+}
+
+#gif-credit {
+  display: flex;
+  justify-content: center;
+  font-size: 9px;
+}

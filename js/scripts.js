@@ -28,17 +28,12 @@ let pokemonRepository = (function() {
   }
 
   function showLoadingMessage() {
-      let loadingMessage = document.querySelector('#loading-message');
-      window.addEventListener('load', function(){
-        loadingMessage.style.visibility = 'visible';
-      });
-    }
-    function hideLoadingMessage() {
-      let loadingMessage = document.querySelector('#loading-message');
-      setTimeout(function(){
-        loadingMessage.style.visibility = 'hidden';
-      }, 500);
-    }
+    document.querySelector('.loading-message').classList.add('visible');
+  }
+
+  function hideLoadingMessage() {
+    document.querySelector('.loading-message').classList.add('hidden');
+  }
 
   function loadList() {
     showLoadingMessage();

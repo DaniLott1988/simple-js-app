@@ -99,18 +99,21 @@ let pokemonRepository = (function() {
     modalBody.empty();
 
     let nameElement = $('<h1>' + pokemon.name + '</h1>');
-    let imageElementF = $('<img class="modal-img" style="width:50%">');
-    imageElementF.attr('scr', pokemon.imageUrl);
-    let imageElementB = $('<img class="modal-img" style="width:50%">');
-    imageElementF.attr('scr', pokemon.imageUrlBack);
     let heightElement = $('<p>' + 'Height: ' + pokemon.height + ' dm' + '</p>');
     let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + ' kg' + '</p>');
     let typesElement = $('<p>' + 'Types: ' + pokemon.types.map(pokemon => ' ' + pokemon.type.name) + '</p>');
     let abilitiesElement = $('<p>' + 'Abilities: ' + pokemon.abilities.map(pokemon => ' ' + pokemon.ability.name) + '</p>');
 
+    let imageElement = $('<img class = "modal-img" style="width:50%">');
+      imageElement.attr('src', pokemon.imageUrl);
+
+    let imageElementBack = $('<img class = "modal-img" style="width:50%">');
+        imageElementBack.attr('src', pokemon.imageUrlBack);
+
+
     modalTitle.append(nameElement);
-    modalBody.append(imageElementF);
-    modalBody.append(imageElementB);
+    modalBody.append(imageElement);
+    modalBody.append(imageElementBack);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typesElement);
